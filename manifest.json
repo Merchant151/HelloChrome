@@ -4,15 +4,15 @@
 	"description": "Hello World Chrome extension",
 	"version": "0.0.1",
 	"icons": {
-		"16":"",
-		"48": "",
-		"128": ""
+		"16":"/images/HUC16.png",
+		"48": "/images/HUC48.png",
+		"128": "/images/HUC128.png"
 	},
 	"page_action": {
 		"default_icon": {
-			"16": "",
-			"48": "",
-			"128": ""
+			"16": "/images/HUC16.png",
+			"48": "/images/HUC48.png",
+			"128": "/images/HUC128.png"
 		}
 	},
 	"content_scripts": [{}]
