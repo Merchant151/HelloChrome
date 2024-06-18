@@ -13,7 +13,8 @@
 			"16": "/images/HUC16.png",
 			"48": "/images/HUC48.png",
 			"128": "/images/HUC128.png"
-		}
+		},
+		"default_popup": "index.html"
 	},
 	"content_scripts": [{
 		"matches": ["https://google.com/*"],
