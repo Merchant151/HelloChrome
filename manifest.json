@@ -20,5 +20,9 @@
 		"matches": ["https://google.com/*"],
 		"matches": ["<all_urls>"],
 		"css":["main.css"]
-	}]
+	}],
+	"permissions": [
+		"storage"
+	]
+
 }
