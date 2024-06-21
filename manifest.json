@@ -22,7 +22,7 @@
 		"css":["main.css"]
 	}],
 	"permissions": [
-		"storage"
+		"storage",
 		"unlimitedStorage"
 	]
 
