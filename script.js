@@ -8,6 +8,17 @@ function addItem() {
 
 }
 
+function saveText(){
+	var listItem = document.createElement('li');
+	listItem.textContent = str;
+	dynamicList.appendChild(listItem);
+}
+
+textBox.addEventListner("keyup",function(event){
+	if (event.keyCode == 13){
+		saveText(textBox.value)
+	}
+});
 addItem();
 
 
