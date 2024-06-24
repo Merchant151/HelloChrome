@@ -1,5 +1,5 @@
 var dynamicList = document.getElementById('test-list');
-var textBox = document.getElementbyID("in");
+var textBox = document.getElementById("in");
 
 function addItem() {
 	 var listItem = document.createElement('li');
@@ -8,15 +8,15 @@ function addItem() {
 
 }
 
-function saveText(){
+function saveText(str){
 	var listItem = document.createElement('li');
 	listItem.textContent = str;
 	dynamicList.appendChild(listItem);
 }
 
-textBox.addEventListner("keyup",function(event){
+textBox.addEventListener("keyup",function(event){
 	if (event.keyCode == 13){
-		saveText(textBox.value)
+		saveText(textBox.value);
 	}
 });
 addItem();
