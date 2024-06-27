@@ -24,6 +24,12 @@
 	"permissions": [
 		"storage",
 		"unlimitedStorage"
-	]
+	],
+	"background":{
+		"service_worker": 
+		"script.js",
+		"persistant": true
+	}
+
 
 }
