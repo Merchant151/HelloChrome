@@ -15,11 +15,12 @@ function saveText(str){
 }
 
 textBox.addEventListener("keyup",function(event){
+	event.preventDefault();
+	console.log('keyup');
+	console.log('KEYCODE: '+event.keyCode);
 	if (event.keyCode == 13){
 		saveText(textBox.value);
 		console.error('why the heck dont this work');
 	}
 });
 addItem();
-console.log('testing console log');
-console.error('why the heck dont this work electicity');
