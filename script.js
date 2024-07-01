@@ -14,13 +14,17 @@ function saveText(str){
 	dynamicList.appendChild(listItem);
 }
 
+textBox.addEventListener('submit',function(event) {
+	console.log('we hit submit');
+	event.preventDefault();
+});
+
 textBox.addEventListener("keyup",function(event){
 	event.preventDefault();
 	console.log('keyup');
 	console.log('KEYCODE: '+event.keyCode);
 	if (event.keyCode == 13){
 		saveText(textBox.value);
-		console.error('why the heck dont this work');
 	}
 });
 addItem();
