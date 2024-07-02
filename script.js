@@ -1,5 +1,6 @@
 var dynamicList = document.getElementById('test-list');
 var textBox = document.getElementById("in");
+var testForm = document.getElementById('inTest');
 
 function addItem() {
 	 var listItem = document.createElement('li');
@@ -13,8 +14,7 @@ function saveText(str){
 	listItem.textContent = str;
 	dynamicList.appendChild(listItem);
 }
-
-textBox.addEventListener('submit',function(event) {
+testForm.addEventListener('submit',function(event) {
 	console.log('we hit submit');
 	event.preventDefault();
 });
