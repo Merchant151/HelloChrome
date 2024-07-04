@@ -27,4 +27,15 @@ textBox.addEventListener("keyup",function(event){
 		saveText(textBox.value);
 	}
 });
+
+document.getElementById('promptButton').addEventListener("click",function(){
+	console.log('what the heellllll');
+	window.location.href = 'prompt.html';	
+});
+
+function move(){
+	console.log('WHAT THE FUCK');
+//window.location.href = 'prompt.html';
+}
+
 addItem();
