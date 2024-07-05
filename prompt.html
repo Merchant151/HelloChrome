@@ -4,9 +4,10 @@
 		<title>'Create A Prompt'</title>
 	</head>
 	<style>
-		p.ex1{
+		p.head{height:20px;}
+		p.foot{
 			width: 300px;
-			height: 10px;
+			height: 500px;
 			font-size:38px;
 		}
 
@@ -17,17 +18,18 @@
 
 	</style>
 	<body>
-		<p class="ex1">
+		<p class="head">
 		</p>
 		<form id='prompt'>
 			<div>	
-		<textarea autocorrect="off" autocapitalize="off" spellcheck="true" style="position: absolute; padding: 0px; width: 200px; heght: 1em; outline: none;resize: vertical;" tabindex="0">Insert Prompt...</textarea>
+		<textarea autocorrect="off" autocapitalize="off" spellcheck="true" style="position: absolute; padding: 10px solid red; width: 200px; height: 400px; outline: none;resize: none; background-color: 10px solid blue;" tabindex="0">Insert Prompt...</textarea>
+		<br id = 'breakforbutton'></br>
 		<div class='spacing'></div>
 		<div class='undertext'>
 		<button type='button'>Test button</button>
 		</div>
 		</form>
-		<p class="ex1">
+		<p class="foot">
 		</p>
 	</body>
 </html>
