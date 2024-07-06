@@ -4,15 +4,16 @@
 		<title>'Create A Prompt'</title>
 	</head>
 	<style>
-		p.head{height:20px;}
+		p.head{height:1px;}
 		p.foot{
 			width: 300px;
-			height: 500px;
+			height: 10px;
 			font-size:38px;
 		}
 
 		.spacing{
 			position:relative;
+			height:380px;
 		}
 
 
@@ -20,16 +21,18 @@
 	<body>
 		<p class="head">
 		</p>
+		<h1>Create New Prompt: </h1>
 		<form id='prompt'>
 			<div>	
-		<textarea autocorrect="off" autocapitalize="off" spellcheck="true" style="position: absolute; padding: 10px solid red; width: 200px; height: 400px; outline: none;resize: none; background-color: 10px solid blue;" tabindex="0">Insert Prompt...</textarea>
+		<textarea autocorrect="off" autocapitalize="off" spellcheck="true" style="position: absolute; padding: 10px solid red; width: 290px; height: 400px; outline: none;resize: none; background-color: 10px solid blue;" tabindex="0">Insert Prompt...</textarea>
 		<br id = 'breakforbutton'></br>
 		<div class='spacing'></div>
 		<div class='undertext'>
-		<button type='button'>Test button</button>
+		<button type='button' id='save'>Save prompt</button>
 		</div>
 		</form>
 		<p class="foot">
 		</p>
+		<script src='prompt.js'></script>
 	</body>
 </html>
