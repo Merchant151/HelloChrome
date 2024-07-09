@@ -2,7 +2,7 @@
 	"manifest_version":3,
 	"name": "HelloChrome",
 	"description": "Hello World Chrome extension",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"icons": {
 		"16":"/images/HUC16.png",
 		"48": "/images/HUC48.png",
@@ -24,10 +24,6 @@
 	"permissions": [
 		"storage",
 		"unlimitedStorage"
-	],
-	"background":{
-		"persistant": true
-	}
-
+	]
 
 }

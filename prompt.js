@@ -15,7 +15,9 @@ document.getElementById('save').addEventListener("click",function(){
 	});
 	console.log('Active Key value is: ' + ActiveKey);
 	console.log('textbox value is: ' + textBox.value);
-	chrome.storage.local.get(ActiveKey).then((result) => {
+	chrome.storage.local.get([ActiveKey]).then((result) => {
 		console.log("value: " + result[name]);
+		////I am testing if I can get other key values from the result.
+		console.log('value: ' + result.name);
 	});
 });
