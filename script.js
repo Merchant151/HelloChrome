@@ -14,12 +14,36 @@ async function createList() {
 	var array = Object.keys(keys);
 	console.log('testing key names on index: ');
 	console.log(array);
-	array.forEach((el) => {
+	await array.forEach((el) => {
 		var listItem = document.createElement('li');
 		listItem.textContent = el;
+		//create clickable link should be turned into button maybe....
+		let link = document.createElement('a');
+		link.href = [el];
+		link.text = 'copy';
+		listItem.appendChild(link);
 		dynamicList.appendChild(listItem);
 	});
+
+	addListners();
 }
+
+
+function addListners(){
+	
+	var myAncors = document.getElementsByTagName('a');
+	for (var i = 0; i < myAncors.length; i++){
+	console.log('I ran '+ i);
+	myAncors[i].addEventListener("click",
+	function(event){
+		event.preventDefault();
+		console.log('defualtprevented');
+		navigator.clipboard.writeText(chrome.storage.local.get([myAncors[i].parentElement.textContent]));
+	});
+
+}
+}
+
 
 function saveText(str){
 //	var listItem = document.createElement('li');
