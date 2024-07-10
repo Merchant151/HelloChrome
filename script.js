@@ -9,20 +9,33 @@ function addItem() {
 
 }
 
+async function createList() {
+	let keys = await chrome.storage.local.get(null);
+	var array = Object.keys(keys);
+	console.log('testing key names on index: ');
+	console.log(array);
+	array.forEach((el) => {
+		var listItem = document.createElement('li');
+		listItem.textContent = el;
+		dynamicList.appendChild(listItem);
+	});
+}
+
 function saveText(str){
-	var listItem = document.createElement('li');
-	listItem.textContent = str;
-	dynamicList.appendChild(listItem);
+//	var listItem = document.createElement('li');
+//	listItem.textContent = str;
+//	dynamicList.appendChild(listItem);
+	console.log('my functionality has been removed');
 }
 testForm.addEventListener('submit',function(event) {
-	console.log('we hit submit');
+	//console.log('we hit submit');
 	event.preventDefault();
 });
 
 textBox.addEventListener("keyup",function(event){
 	event.preventDefault();
-	console.log('keyup');
-	console.log('KEYCODE: '+event.keyCode);
+	//console.log('keyup');
+	//console.log('KEYCODE: '+event.keyCode);
 	if (event.keyCode == 13){
 		saveText(textBox.value);
 	}
@@ -38,4 +51,5 @@ function move(){
 //window.location.href = 'prompt.html';
 }
 
-addItem();
+//addItem();
+createList();
