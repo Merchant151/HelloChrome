@@ -15,10 +15,10 @@ document.getElementById('save').addEventListener("click",function(){
 	console.log("set values");
 	});
 
-	chrome.storage.local.get(null).then((result) => {
-		console.log('atempting to log keys: ' + Object.keys(result));
+	//chrome.storage.local.get(null).then((result) => {
+	//	console.log('atempting to log keys: ' + Object.keys(result));
 		//ActiveKey = Object.keys(result);
-	});
+	//});
 	//console.log('Active Key value is: ' + ActiveKey);
 	//console.log('textbox value is: ' + textBox.value); not interested in this information
 	//chrome.storage.local.get(ActiveKey).then((result) => {
