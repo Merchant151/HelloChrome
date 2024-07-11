@@ -21,8 +21,14 @@ async function createList() {
 		//create clickable link should be turned into button maybe....
 		let link = document.createElement('a');
 		link.href = '#'+[el];
-		link.text = 'copy';
+		link.text = ' copy';
 		listItem.appendChild(link);
+		//Create clickable delete link also can be button later
+		let del = document.createElement('a');
+		del.href = '#'+'nopezz';
+		del.text = ' delete';
+		del.id = 'delete';
+		listItem.appendChild(del)
 		dynamicList.appendChild(listItem);
 	});
 
@@ -38,21 +44,30 @@ async function addListners(){
 	async function(event){
 		event.preventDefault();
 		console.log('defualtprevented');
+		console.log(event.target.id);
+
+		if (event.target.id == 'delete' ){
+			console.log('del confirmed');
+			chrome.storage.local.remove([event.target.parentElement.id]);
+			location.reload();
+		}else{
+
 		///let testing = await chrome.storage.local.get('name');
 		///console.log(testing);
 		///console.log(Object.values(testing));
 		///console.log(testing.get('name'));
-		////chrome.storage.local.get()
+		////chrome.stget([pass]);
+		///console.log(''+Object.values(x)[0]);
 		let pass = event.target.parentElement.id;
 		console.log(pass);
 
 		let x = await chrome.storage.local.get([pass]);
-		///console.log(''+Object.values(x)[0]);
+
 		let room = ''+Object.values(x)[0];
 		console.log(room);
 
 		navigator.clipboard.writeText(room);	
-
+		}
 		///navigator.clipboard.writeText(
 		///	chrome.storage.local.get(
 		///		[myAncors[i].parentElement.textContent]));
@@ -94,3 +109,4 @@ function move(){
 
 //addItem();
 createList();
+
