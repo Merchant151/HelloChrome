@@ -43,9 +43,15 @@ async function addListners(){
 		///console.log(Object.values(testing));
 		///console.log(testing.get('name'));
 		////chrome.storage.local.get()
-		console.log(event.target.parentElement.id);
+		let pass = event.target.parentElement.id;
+		console.log(pass);
 
-		
+		let x = await chrome.storage.local.get([pass]);
+		///console.log(''+Object.values(x)[0]);
+		let room = ''+Object.values(x)[0];
+		console.log(room);
+
+		navigator.clipboard.writeText(room);	
 
 		///navigator.clipboard.writeText(
 		///	chrome.storage.local.get(
