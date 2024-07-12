@@ -28,9 +28,15 @@ async function createList() {
 		del.href = '#'+'nopezz';
 		del.text = ' delete';
 		del.id = 'delete';
-		listItem.appendChild(del)
+		listItem.appendChild(del);
+		let go = document.createElement('a');
+		go.href = '#'+'nonezzz';
+		go.text = ' goto';
+		go.id = 'goto';
+		listItem.appendChild(go);
 		dynamicList.appendChild(listItem);
 	});
+
 
 	addListners();
 }
