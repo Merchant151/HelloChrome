@@ -56,7 +56,14 @@ async function addListners(){
 			console.log('del confirmed');
 			chrome.storage.local.remove([event.target.parentElement.id]);
 			location.reload();
-		}else{
+		}else if (event.target.id=='goto'){
+			console.log('gotofound');
+		}
+
+
+
+
+			else{
 
 		///let testing = await chrome.storage.local.get('name');
 		///console.log(testing);
