@@ -58,6 +58,8 @@ async function addListners(){
 			location.reload();
 		}else if (event.target.id=='goto'){
 			console.log('gotofound');
+			let edit = await chrome.storage.local.get([event.target.parentElement.id]);
+			window.location.href = 'prompt.html?edit='+Object.values(edit);
 		}
 
 
