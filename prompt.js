@@ -5,7 +5,9 @@
 var textBox = document.getElementById("textarea");
 var promptName = document.getElementById('pName');
 //var ActiveKey = '';
-
+const queryString = window.location.search;
+console.log('logging vars');
+console.log(queryString);
 
 document.getElementById('save').addEventListener("click",function(){
 	console.log('memory testing');
