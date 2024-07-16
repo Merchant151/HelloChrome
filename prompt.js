@@ -42,7 +42,13 @@ async function promBox()
 	//document.getElementByID().appendChild(myNewEl)
 
 	let myProm = document.createElement('textarea');
-	//myProm.style = 'position: absolute; padding: 10px solid red; width: 290px height: 400px; outline: none resize: none; background-color: 10px solid blue;';
+	myProm.style.position ='absolute'; 
+	myProm.style.padding = '10px '; 
+	myProm.style.width = '290px'; 
+	myProm.style.height = '400px'; 
+	myProm.style.outline= 'none'; 
+	myProm.style.resize = 'none';
+	myProm.style.backgroundcolor= 'solid blue';
 	myProm.id = 'dynamicText';
 	myProm.autocorrect = 'off'; 
 	myProm.autocapitalize = 'off'; 
