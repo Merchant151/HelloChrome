@@ -33,3 +33,34 @@ document.getElementById('save').addEventListener("click",function(){
 		//console.log('value 3: ' + result[name]); //'key'
 	//});
 });
+
+async function promBox()
+{
+	///examplers
+	//let el = document.createElement('h1');
+	//elmn.id = 'newID' ///can be id or any attribute 
+	//document.getElementByID().appendChild(myNewEl)
+
+	let myProm = document.createElement('textarea');
+	//myProm.style = 'position: absolute; padding: 10px solid red; width: 290px height: 400px; outline: none resize: none; background-color: 10px solid blue;';
+	myProm.id = 'dynamicText';
+	myProm.autocorrect = 'off'; 
+	myProm.autocapitalize = 'off'; 
+	myProm.spellcheck = 'true';
+	myProm.tabindex = '0';
+	myProm.textContent = 'dynamic text';
+
+	let mydiv = document.getElementById('promptSection')
+	
+
+	mydiv.appendChild(myProm);
+	console.log('line 45 prompt.js');
+
+	console.log('chidlren of the Div: ')
+	for (const child of mydiv.children) {
+ 	 	
+		console.log(child.tagName);
+	}
+}
+
+promBox();
