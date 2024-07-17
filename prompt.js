@@ -40,6 +40,7 @@ async function promBox()
 	//let el = document.createElement('h1');
 	//elmn.id = 'newID' ///can be id or any attribute 
 	//document.getElementByID().appendChild(myNewEl)
+	let promvalue = 'insert prompt...';
 
 	let myProm = document.createElement('textarea');
 	myProm.style.position ='absolute'; 
@@ -54,7 +55,7 @@ async function promBox()
 	myProm.autocapitalize = 'off'; 
 	myProm.spellcheck = 'true';
 	myProm.tabindex = '0';
-	myProm.textContent = 'dynamic text';
+	myProm.textContent = promvalue;
 
 	let mydiv = document.getElementById('promptSection')
 	
