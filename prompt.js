@@ -9,6 +9,9 @@ const queryString = window.location.search;
 console.log('logging vars');
 console.log(queryString);
 
+
+async function addme(){
+
 document.getElementById('save').addEventListener("click",function(){
 	console.log('memory testing');
 
@@ -33,6 +36,7 @@ document.getElementById('save').addEventListener("click",function(){
 		//console.log('value 3: ' + result[name]); //'key'
 	//});
 });
+}
 
 async function promBox()
 {
@@ -45,7 +49,7 @@ async function promBox()
 	let myProm = document.createElement('textarea');
 	myProm.style.position ='absolute'; 
 	myProm.style.padding = '10px '; 
-	myProm.style.width = '290px'; 
+	myProm.style.width = '275px'; 
 	myProm.style.height = '400px'; 
 	myProm.style.outline= 'none'; 
 	myProm.style.resize = 'none';
@@ -69,5 +73,31 @@ async function promBox()
 		console.log(child.tagName);
 	}
 }
+async function saveBox()
+{
+	let namevalue	= 'Prompt Name...';
+
+	let nameInput = document.createElement('input');
+	let nameButton = document.createElement('button');
+	let spaces = document.createElement('div');
+
+	nameInput.type = 'text';
+	nameInput.id = 'pName';
+
+	nameButton.type = 'button';
+	nameButton.id = 'save';
+	nameButton.textContent = 'Save Prompt';
+
+	spaces.classList.add('spacing');
+
+	let mydiv = document.getElementById('promptSection');
+
+	await mydiv.appendChild(spaces);
+	await mydiv.appendChild(nameInput);
+	await mydiv.appendChild(nameButton);
+
+	addme();	
+}
 
 promBox();
+saveBox();
