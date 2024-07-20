@@ -2,8 +2,6 @@
 //var name = 'key';
 //var nameTwo = 'name';
 //var prom = 'value';
-var textBox = document.getElementById("textarea");
-var promptName = document.getElementById('pName');
 //var ActiveKey = '';
 const queryString = window.location.search;
 console.log('logging vars');
@@ -11,9 +9,11 @@ console.log(queryString);
 
 
 async function addme(){
+var textBox = document.getElementById("textarea");
+var promptName = document.getElementById('pName');
 
 document.getElementById('save').addEventListener("click",function(){
-	console.log('memory testing');
+	console.log('memory testing2');
 
 	var data = { [promptName.value]:textBox.value }; 
 	chrome.storage.local.set(data).then(() => {
