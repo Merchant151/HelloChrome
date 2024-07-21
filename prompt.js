@@ -9,7 +9,7 @@ console.log(queryString);
 
 
 async function addme(){
-var textBox = document.getElementById("textarea");
+var textBox = document.getElementById('dynamicText');
 var promptName = document.getElementById('pName');
 
 document.getElementById('save').addEventListener("click",function(){
@@ -95,7 +95,7 @@ async function saveBox()
 	await mydiv.appendChild(spaces);
 	await mydiv.appendChild(nameInput);
 	await mydiv.appendChild(nameButton);
-
+	console.log('running addme');
 	addme();	
 }
 
