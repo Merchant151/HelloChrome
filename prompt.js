@@ -79,7 +79,7 @@ async function saveBox()
 
 	let nameInput = document.createElement('input');
 	let nameButton = document.createElement('button');
-	let spaces = document.createElement('div');
+	//let spaces = document.createElement('div');
 
 	nameInput.type = 'text';
 	nameInput.id = 'pName';
@@ -88,11 +88,11 @@ async function saveBox()
 	nameButton.id = 'save';
 	nameButton.textContent = 'Save Prompt';
 
-	spaces.classList.add('spacing');
+	//spaces.classList.add('spacing');
 
 	let mydiv = document.getElementById('promptSection');
 
-	await mydiv.appendChild(spaces);
+	//await mydiv.appendChild(spaces);
 	await mydiv.appendChild(nameInput);
 	await mydiv.appendChild(nameButton);
 	console.log('running addme');
