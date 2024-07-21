@@ -47,7 +47,7 @@ async function promBox()
 	let promvalue = 'insert prompt...';
 
 	let myProm = document.createElement('textarea');
-	myProm.style.position ='absolute'; 
+	//myProm.style.position ='absolute'; 
 	myProm.style.padding = '10px '; 
 	myProm.style.width = '275px'; 
 	myProm.style.height = '400px'; 
@@ -55,8 +55,8 @@ async function promBox()
 	myProm.style.resize = 'none';
 	myProm.style.backgroundcolor= 'solid blue';
 	myProm.id = 'dynamicText';
-	myProm.autocorrect = 'off'; 
-	myProm.autocapitalize = 'off'; 
+	//myProm.autocorrect = 'off'; 
+	//myProm.autocapitalize = 'off'; 
 	myProm.spellcheck = 'true';
 	myProm.tabindex = '0';
 	myProm.textContent = promvalue;
