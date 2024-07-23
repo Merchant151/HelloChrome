@@ -8,6 +8,14 @@ console.log('logging vars');
 console.log(queryString);
 
 
+
+document.getElementById('backB').addEventListener("click",function(){
+	//console.log('added backButton');
+ 	window.location.href = 'index.html';
+	
+
+})
+
 async function addme(){
 var textBox = document.getElementById('dynamicText');
 var promptName = document.getElementById('pName');
