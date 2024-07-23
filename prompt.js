@@ -6,7 +6,7 @@
 const queryString = window.location.search;
 console.log('logging vars');
 console.log(queryString);
-
+var parse = queryParser(queryString);
 
 
 document.getElementById('backB').addEventListener("click",function(){
@@ -14,7 +14,23 @@ document.getElementById('backB').addEventListener("click",function(){
  	window.location.href = 'index.html';
 	
 
-})
+});
+
+function queryParser(q)
+{
+
+console.log('Testing queryParser');
+	//console.log('input: ' + q);
+	let r = q.split('%20');
+	let builder = '';
+	for (a in r) {
+		builder = builder+' '+r[a];
+	}
+	console.log('output: ');
+	console.log(builder.slice(7));
+	return q.split(builder.slice(7));
+
+};
 
 async function addme(){
 var textBox = document.getElementById('dynamicText');
