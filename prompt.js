@@ -5,8 +5,14 @@
 //var ActiveKey = '';
 
 document.getElementById('backB').addEventListener("click",function(){
-	//console.log('added backButton');
- 	window.location.href = 'index.html';
+	//console.log('added backButton');i
+	var promptName = document.getElementById('pName');
+	var textBox = document.getElementById('dynamicText');
+ 	var data = {[promptName.value]:textBox.value};
+	chrome.storage.local.set(data).then(()=> {console.log("emergency save")});
+
+
+	window.location.href = 'index.html';
 	
 
 });
