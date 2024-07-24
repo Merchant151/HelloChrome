@@ -3,13 +3,6 @@
 //var nameTwo = 'name';
 //var prom = 'value';
 //var ActiveKey = '';
-const queryString = window.location.search;
-//console.log('logging vars');
-//console.log(queryString);
-var parse = queryParser(queryString);
-console.log('Picked pepper: '+parse);
-let editPrompt = chrome.storage.local.get([parse]).then((value => {console.log(value)}));
-//console.log(editPrompt);
 
 document.getElementById('backB').addEventListener("click",function(){
 	//console.log('added backButton');
@@ -70,7 +63,24 @@ async function promBox()
 	//let el = document.createElement('h1');
 	//elmn.id = 'newID' ///can be id or any attribute 
 	//document.getElementByID().appendChild(myNewEl)
-	let promvalue = 'insert prompt...';
+	//check for value in edit 
+	const queryString = window.location.search;
+	//console.log('logging vars');
+	//console.log(queryString);
+	var parse = queryParser(queryString);
+	console.log('Picked pepper: '+parse);
+	var promvalue = await chrome.storage.local.get([parse]);
+	console.log('logging prompt value');
+	console.log(promvalue);
+	console.log(promvalue[parse]);
+	var output = promvalue[parse];
+	//console.log('logging output');
+	//console.log(output);
+	if (typeof promvalue[parse] === 'undefined' ){
+		console.log('found no value for prompt');
+		var promvalue = 'insert prompt...';
+		var output = promvalue;
+	}
 
 	let myProm = document.createElement('textarea');
 	//myProm.style.position ='absolute'; 
@@ -85,7 +95,7 @@ async function promBox()
 	//myProm.autocapitalize = 'off'; 
 	myProm.spellcheck = 'true';
 	myProm.tabindex = '0';
-	myProm.textContent = promvalue;
+	myProm.textContent = output;
 
 	let mydiv = document.getElementById('promptSection')
 	
@@ -98,10 +108,18 @@ async function promBox()
  	 	
 		console.log(child.tagName);
 	}
+	saveBox(parse);
 }
-async function saveBox()
+async function saveBox(parse)
 {
-	let namevalue	= 'Prompt Name...';
+	if (parse.length <=1){
+		console.log('parse is undefined');
+		var namevalue = 'Prompt Name...'
+	}else 
+	{	console.log('parse is defined');
+		console.log(parse);
+		var namevalue = parse;
+	}
 
 	let nameInput = document.createElement('input');
 	let nameButton = document.createElement('button');
@@ -109,6 +127,7 @@ async function saveBox()
 
 	nameInput.type = 'text';
 	nameInput.id = 'pName';
+	nameInput.value =  namevalue;
 
 	nameButton.type = 'button';
 	nameButton.id = 'save';
@@ -126,4 +145,4 @@ async function saveBox()
 }
 
 promBox();
-saveBox();
+//saveBox();
