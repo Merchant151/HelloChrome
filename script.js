@@ -118,7 +118,7 @@ document.getElementById('promptButton').addEventListener("click",function(){
 });
 
 function move(){
-	console.log('WHAT THE FUCK');
+	console.log('WHAT THE heckers');
 //window.location.href = 'prompt.html';
 }
 

@@ -7,7 +7,7 @@ const queryString = window.location.search;
 console.log('logging vars');
 console.log(queryString);
 var parse = queryParser(queryString);
-
+console.log('Picked pepper:'+parse)
 
 document.getElementById('backB').addEventListener("click",function(){
 	//console.log('added backButton');
@@ -19,16 +19,16 @@ document.getElementById('backB').addEventListener("click",function(){
 function queryParser(q)
 {
 
-console.log('Testing queryParser');
+	//console.log('Testing queryParser');
 	//console.log('input: ' + q);
 	let r = q.split('%20');
 	let builder = '';
 	for (a in r) {
 		builder = builder+' '+r[a];
 	}
-	console.log('output: ');
+	//console.log('output: ');
 	console.log(builder.slice(7));
-	return q.split(builder.slice(7));
+	return builder.slice(7);
 
 };
 
