@@ -4,8 +4,8 @@
 //var prom = 'value';
 //var ActiveKey = '';
 const queryString = window.location.search;
-console.log('logging vars');
-console.log(queryString);
+//console.log('logging vars');
+//console.log(queryString);
 var parse = queryParser(queryString);
 console.log('Picked pepper:'+parse)
 

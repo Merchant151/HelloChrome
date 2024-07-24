@@ -58,8 +58,11 @@ async function addListners(){
 			location.reload();
 		}else if (event.target.id=='goto'){
 			console.log('gotofound');
-			let edit = await chrome.storage.local.get([event.target.parentElement.id]);
-			window.location.href = 'prompt.html?edit='+Object.values(edit);
+			//I realized I was passing the prompt and not the name so I want to fix this. 
+			//let edit = await chrome.storage.local.get([event.target.parentElement.id]);
+			//window.location.href = 'prompt.html?edit='+Object.values(edit);
+			//This only works if the parrent element id is the prompt name as a string
+			window.location.href = 'prompt.html?edit='+event.target.parentElement.id;
 		}
 
 
