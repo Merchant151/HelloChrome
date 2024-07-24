@@ -7,7 +7,9 @@ const queryString = window.location.search;
 //console.log('logging vars');
 //console.log(queryString);
 var parse = queryParser(queryString);
-console.log('Picked pepper:'+parse)
+console.log('Picked pepper: '+parse);
+let editPrompt = chrome.storage.local.get([parse]).then((value => {console.log(value)}));
+//console.log(editPrompt);
 
 document.getElementById('backB').addEventListener("click",function(){
 	//console.log('added backButton');
