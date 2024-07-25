@@ -33,16 +33,16 @@ function queryParser(q)
 
 };
 
-async function addme(){
+async function /ddme(){
 var textBox = document.getElementById('dynamicText');
 var promptName = document.getElementById('pName');
 
 document.getElementById('save').addEventListener("click",function(){
-	console.log('memory testing2');
+	//console.log('memory testing2');
 
 	var data = { [promptName.value]:textBox.value }; 
 	chrome.storage.local.set(data).then(() => {
-	console.log("set values");
+	//console.log("set values");
 	});
 
 	//chrome.storage.local.get(null).then((result) => {
@@ -58,7 +58,7 @@ document.getElementById('save').addEventListener("click",function(){
 		//in this log i am getting literal name 
 		//console.log('value: ' + result.name); //'name'
 		//in this log i am getting string 'key' 
-		//console.log('value 3: ' + result[name]); //'key'
+	//console.log('value 3: ' + result[name]); //'key'
 	//});
 });
 }
@@ -73,17 +73,17 @@ async function promBox()
 	const queryString = window.location.search;
 	//console.log('logging vars');
 	//console.log(queryString);
-	var parse = queryParser(queryString);
+	//var parse = queryParser(queryString);
 	console.log('Picked pepper: '+parse);
 	var promvalue = await chrome.storage.local.get([parse]);
-	console.log('logging prompt value');
-	console.log(promvalue);
-	console.log(promvalue[parse]);
+	//console.log('logging prompt value');
+	//console.log(promvalue);
+	//console.log(promvalue[parse]);
 	var output = promvalue[parse];
 	//console.log('logging output');
 	//console.log(output);
 	if (typeof promvalue[parse] === 'undefined' ){
-		console.log('found no value for prompt');
+		//console.log('found no value for prompt');
 		var promvalue = 'insert prompt...';
 		var output = promvalue;
 	}
@@ -107,7 +107,7 @@ async function promBox()
 	
 
 	mydiv.appendChild(myProm);
-	console.log('line 45 prompt.js');
+	//console.log('line 45 prompt.js');
 
 	console.log('chidlren of the Div: ')
 	for (const child of mydiv.children) {
@@ -115,15 +115,27 @@ async function promBox()
 		console.log(child.tagName);
 	}
 	saveBox(parse);
+	autoBox(output);
+	
 }
+
+async function autobox(promptText){
+
+//parse and log autofill
+	
+
+//build and append autofill section 
+
+}
+
 async function saveBox(parse)
 {
 	if (parse.length <=1){
-		console.log('parse is undefined');
+		//console.log('parse is undefined');
 		var namevalue = 'Prompt Name...'
 	}else 
-	{	console.log('parse is defined');
-		console.log(parse);
+	{	//console.log('parse is defined');
+		//console.log(parse);
 		var namevalue = parse;
 	}
 
@@ -146,7 +158,7 @@ async function saveBox(parse)
 	//await mydiv.appendChild(spaces);
 	await mydiv.appendChild(nameInput);
 	await mydiv.appendChild(nameButton);
-	console.log('running addme');
+	//console.log('running addme');
 	addme();	
 }
 
