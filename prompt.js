@@ -28,12 +28,12 @@ function queryParser(q)
 		builder = builder+' '+r[a];
 	}
 	//console.log('output: ');
-	console.log(builder.slice(7));
+	//console.log(builder.slice(7));
 	return builder.slice(7);
 
 };
 
-async function /ddme(){
+async function addme(){
 var textBox = document.getElementById('dynamicText');
 var promptName = document.getElementById('pName');
 
@@ -73,8 +73,8 @@ async function promBox()
 	const queryString = window.location.search;
 	//console.log('logging vars');
 	//console.log(queryString);
-	//var parse = queryParser(queryString);
-	console.log('Picked pepper: '+parse);
+	var parse = queryParser(queryString);
+	//console.log('Picked pepper: '+parse);
 	var promvalue = await chrome.storage.local.get([parse]);
 	//console.log('logging prompt value');
 	//console.log(promvalue);
@@ -119,10 +119,36 @@ async function promBox()
 	
 }
 
-async function autobox(promptText){
+async function autoBox(promptText){
 
 //parse and log autofill
-	
+	console.log('starting autobox creation process on prompt: ' + promptText);
+	var blanks = [];
+	let blankNum = -1;
+	let blank = '';
+	let started = false;
+	for (let i = 0; i< promptText.length; i++){
+		console.log(promptText.charAt(i));
+		if (promptText.charAt(i) == '[' && !started){
+			console.log('found start');
+			started = true; 
+			blankNum = blankNum + 1;
+		}
+		if (started){
+			blank = blank+promptText.charAt(i);
+		}
+
+		if (started && promptText.charAt(i) == ']'){
+			console.log('found end');
+			started = false;
+			blanks[blankNum] = blank;
+			blank = '';
+		}
+	}
+	console.log('Found: ');
+	console.log(blanks);
+
+
 
 //build and append autofill section 
 
