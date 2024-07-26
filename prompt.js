@@ -5,12 +5,15 @@
 //var ActiveKey = '';
 
 document.getElementById('backB').addEventListener("click",function(){
-	//console.log('added backButton');i
+	//console.log('added backButton');
 	var promptName = document.getElementById('pName');
 	var textBox = document.getElementById('dynamicText');
  	var data = {[promptName.value]:textBox.value};
+	if (textBox.value == 'insert prompt...'){
+		console.log('no emergency save needed');
+	}else{
 	chrome.storage.local.set(data).then(()=> {console.log("emergency save")});
-
+	}
 
 	window.location.href = 'index.html';
 	
@@ -108,18 +111,18 @@ async function promBox()
 
 	mydiv.appendChild(myProm);
 	//console.log('line 45 prompt.js');
-
+	
 	console.log('chidlren of the Div: ')
 	for (const child of mydiv.children) {
  	 	
 		console.log(child.tagName);
 	}
-	saveBox(parse);
-	autoBox(output);
+	await saveBox(parse);
+	autoBox(output,parse);
 	
 }
 
-async function autoBox(promptText){
+async function autoBox(promptText,parse){
 
 //parse and log autofill
 	console.log('starting autobox creation process on prompt: ' + promptText);
@@ -148,12 +151,43 @@ async function autoBox(promptText){
 	console.log('Found: ');
 	console.log(blanks);
 
+	
 
+	let mydiv = document.getElementById('promptSection');
+	if (typeof parse !== 'undefined'){
+		//build and append autofill section 
+		//'h3'
+		let autoTitle = document.createElement('h3');
+		//content autofill and copy
+		autoTitle.textContent = 'Autofill and Copy'
+		
+		mydiv.appendChild(autoTitle);
+		//for blanks
+		let blankName = document.createElement('small');
+		let autoInput = document.createElement('input');
+		let br;
+		for (let x of blanks){
+			//create blank name
+			console.log('Auto')
+			blankName = document.createElement('small'); 
+			blankName.textContent = x.slice(1,-1)+':';
+			mydiv.appendChild(blankName);
+			autoInput = document.createElement('input')
+			autoInput.type = 'text';
+			autoInput.id = x;
+			mydiv.appendChild(autoInput);
+			br = document.createElement('br');
+			mydiv.appendChild(br);
+		}
+		}else{console.log('parse undefined');}
 
-//build and append autofill section 
+	//create copy button. 
+		let copy = document.createElement('button');
+		copy.textContent = 'copy';
+		mydiv.appendChild(copy);
+	//create blank box 
 
-}
-
+}	
 async function saveBox(parse)
 {
 	if (parse.length <=1){
@@ -167,7 +201,10 @@ async function saveBox(parse)
 
 	let nameInput = document.createElement('input');
 	let nameButton = document.createElement('button');
+	let nameText = document.createElement('small');
 	//let spaces = document.createElement('div');
+
+	nameText.textContent = 'Prompt Name:';
 
 	nameInput.type = 'text';
 	nameInput.id = 'pName';
@@ -175,17 +212,19 @@ async function saveBox(parse)
 
 	nameButton.type = 'button';
 	nameButton.id = 'save';
-	nameButton.textContent = 'Save Prompt';
+	nameButton.textContent = 'Save';
 
 	//spaces.classList.add('spacing');
 
 	let mydiv = document.getElementById('promptSection');
 
 	//await mydiv.appendChild(spaces);
+	await mydiv.appendChild(nameText);
 	await mydiv.appendChild(nameInput);
 	await mydiv.appendChild(nameButton);
 	//console.log('running addme');
-	addme();	
+	addme();
+
 }
 
 promBox();
