@@ -175,7 +175,7 @@ async function autoBox(promptText,parse){
 			autoInput = document.createElement('input')
 			autoInput.type = 'text';
 			autoInput.id = x;
-			autoInput.class = 'AutoIn';
+			autoInput.classList = 'AutoIn';
 			mydiv.appendChild(autoInput);
 			br = document.createElement('br');
 			mydiv.appendChild(br);
