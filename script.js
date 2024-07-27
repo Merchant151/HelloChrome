@@ -45,11 +45,11 @@ async function addListners(){
 	
 	var myAncors = document.getElementsByTagName('a');
 	for (var i = 0; i < myAncors.length; i++){
-	console.log('I ran '+ i);
+	//console.log('I ran '+ i);
 	myAncors[i].addEventListener("click",
 	async function(event){
 		event.preventDefault();
-		console.log('defualtprevented');
+		//console.log('defualtprevented');
 		console.log(event.target.id);
 
 		if (event.target.id == 'delete' ){
@@ -64,10 +64,6 @@ async function addListners(){
 			//This only works if the parrent element id is the prompt name as a string
 			window.location.href = 'prompt.html?edit='+event.target.parentElement.id;
 		}
-
-
-
-
 			else{
 
 		///let testing = await chrome.storage.local.get('name');
