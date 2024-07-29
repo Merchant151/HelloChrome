@@ -12,7 +12,7 @@ document.getElementById('backB').addEventListener("click",function(){
 	if (textBox.value == 'insert prompt...'){
 		console.log('no emergency save needed');
 	}else{
-	chrome.storage.local.set(data).then(()=> {console.log("emergency save")});
+	chrome.storage.local.set(data).then(()=> {console.log("emergency save");});
 	}
 
 	window.location.href = 'index.html';
@@ -64,6 +64,19 @@ document.getElementById('save').addEventListener("click",function(){
 	//console.log('value 3: ' + result[name]); //'key'
 	//});
 });
+}
+
+async function autoListner(){
+
+console.log('autoListner function');
+
+document.getElementById('copy').addEventListener('click',function(){
+console.log('copy');
+
+
+
+});
+
 }
 
 async function promBox()
@@ -186,7 +199,9 @@ async function autoBox(promptText,parse){
 	//create copy button. 
 		let copy = document.createElement('button');
 		copy.textContent = 'copy';
-		mydiv.appendChild(copy);
+		copy.id = 'copy';
+		await mydiv.appendChild(copy);
+	 	autoListner();	
 	//create blank box 
 
 }	
