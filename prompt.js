@@ -77,14 +77,15 @@ async function promBox()
 	//console.log('logging vars');
 	//console.log(queryString);
 	var parse = queryParser(queryString);
-	//console.log('Picked pepper: '+parse);
+	console.log('Picked pepper: '+parse);
 	var promvalue = await chrome.storage.local.get([parse]);
-	//console.log('logging prompt value');
-	//console.log(promvalue);
-	//console.log(promvalue[parse]);
+	console.log('logging prompt value');
+	console.log(promvalue);
+	console.log(''+Object.values(promvalue)[0])
+	console.log(promvalue[parse]);
 	var output = promvalue[parse];
 	//console.log('logging output');
-	//console.log(output);
+	console.log(output);
 	if (typeof promvalue[parse] === 'undefined' ){
 		//console.log('found no value for prompt');
 		var promvalue = 'insert prompt...';
@@ -112,11 +113,11 @@ async function promBox()
 	mydiv.appendChild(myProm);
 	//console.log('line 45 prompt.js');
 	
-	console.log('chidlren of the Div: ')
-	for (const child of mydiv.children) {
+	///console.log('chidlren of the Div: ')
+	///for (const child of mydiv.children) {
  	 	
-		console.log(child.tagName);
-	}
+	///	console.log(child.tagName);
+	///}
 	await saveBox(parse);
 	autoBox(output,parse);
 	
