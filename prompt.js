@@ -66,13 +66,24 @@ document.getElementById('save').addEventListener("click",function(){
 });
 }
 
-async function autoListner(){
+async function autoListner(keyNames){
 
+	
 console.log('autoListner function');
-
-document.getElementById('copy').addEventListener('click',function(){
-console.log('copy');
-
+document.getElementById('copy').addEventListener('click',function(event){
+	event.preventDefault();
+	console.log('copy');
+	console.log('There are '+keyNames.length+' KeyNames');
+	//CREATE MAP
+	var boxValues = new Map();
+	for (let i =0; i < keyNames.length; i++ ){
+		//get each keyname value 
+		//if keyname value is not null add to map]
+		console.log('logging value '+keyNames[i]);
+		console.log(document.getElementById(keyNames[i]).value);	
+	}
+	//for each key name replace
+	//copy to clipboard 
 
 
 });
@@ -145,9 +156,9 @@ async function autoBox(promptText,parse){
 	let blank = '';
 	let started = false;
 	for (let i = 0; i< promptText.length; i++){
-		console.log(promptText.charAt(i));
+		//console.log(promptText.charAt(i));
 		if (promptText.charAt(i) == '[' && !started){
-			console.log('found start');
+			//console.log('found start');
 			started = true; 
 			blankNum = blankNum + 1;
 		}
@@ -201,7 +212,7 @@ async function autoBox(promptText,parse){
 		copy.textContent = 'copy';
 		copy.id = 'copy';
 		await mydiv.appendChild(copy);
-	 	autoListner();	
+	 	autoListner(blanks);	
 	//create blank box 
 
 }	

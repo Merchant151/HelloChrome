@@ -58,20 +58,10 @@ async function addListners(){
 			location.reload();
 		}else if (event.target.id=='goto'){
 			console.log('gotofound');
-			//I realized I was passing the prompt and not the name so I want to fix this. 
-			//let edit = await chrome.storage.local.get([event.target.parentElement.id]);
-			//window.location.href = 'prompt.html?edit='+Object.values(edit);
-			//This only works if the parrent element id is the prompt name as a string
 			window.location.href = 'prompt.html?edit='+event.target.parentElement.id;
 		}
 			else{
 
-		///let testing = await chrome.storage.local.get('name');
-		///console.log(testing);
-		///console.log(Object.values(testing));
-		///console.log(testing.get('name'));
-		////chrome.stget([pass]);
-		///console.log(''+Object.values(x)[0]);
 		let pass = event.target.parentElement.id;
 		console.log(pass);
 
@@ -82,9 +72,6 @@ async function addListners(){
 
 		navigator.clipboard.writeText(room);	
 		}
-		///navigator.clipboard.writeText(
-		///	chrome.storage.local.get(
-		///		[myAncors[i].parentElement.textContent]));
 	});
 
 }
