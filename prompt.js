@@ -80,7 +80,8 @@ document.getElementById('copy').addEventListener('click',function(event){
 		//get each keyname value 
 		//if keyname value is not null add to map]
 		console.log('logging value '+keyNames[i]);
-		console.log(document.getElementById(keyNames[i]).value);	
+		console.log(document.getElementById(keyNames[i]).value);
+		console.log('value length '+document.getElementById(keyNames[i]).value.length)
 	}
 	//for each key name replace
 	//copy to clipboard 
@@ -92,14 +93,7 @@ document.getElementById('copy').addEventListener('click',function(event){
 
 async function promBox()
 {
-	///examplers
-	//let el = document.createElement('h1');
-	//elmn.id = 'newID' ///can be id or any attribute 
-	//document.getElementByID().appendChild(myNewEl)
-	//check for value in edit 
 	const queryString = window.location.search;
-	//console.log('logging vars');
-	//console.log(queryString);
 	var parse = queryParser(queryString);
 	console.log('Picked pepper: '+parse);
 	var promvalue = await chrome.storage.local.get([parse]);
@@ -108,16 +102,13 @@ async function promBox()
 	console.log(''+Object.values(promvalue)[0])
 	console.log(promvalue[parse]);
 	var output = promvalue[parse];
-	//console.log('logging output');
 	console.log(output);
 	if (typeof promvalue[parse] === 'undefined' ){
-		//console.log('found no value for prompt');
 		var promvalue = 'insert prompt...';
 		var output = promvalue;
 	}
 
 	let myProm = document.createElement('textarea');
-	//myProm.style.position ='absolute'; 
 	myProm.style.padding = '10px '; 
 	myProm.style.width = '275px'; 
 	myProm.style.height = '400px'; 
@@ -125,8 +116,6 @@ async function promBox()
 	myProm.style.resize = 'none';
 	myProm.style.backgroundcolor= 'solid blue';
 	myProm.id = 'dynamicText';
-	//myProm.autocorrect = 'off'; 
-	//myProm.autocapitalize = 'off'; 
 	myProm.spellcheck = 'true';
 	myProm.tabindex = '0';
 	myProm.textContent = output;
@@ -135,13 +124,7 @@ async function promBox()
 	
 
 	mydiv.appendChild(myProm);
-	//console.log('line 45 prompt.js');
 	
-	///console.log('chidlren of the Div: ')
-	///for (const child of mydiv.children) {
- 	 	
-	///	console.log(child.tagName);
-	///}
 	await saveBox(parse);
 	autoBox(output,parse);
 	
@@ -156,9 +139,7 @@ async function autoBox(promptText,parse){
 	let blank = '';
 	let started = false;
 	for (let i = 0; i< promptText.length; i++){
-		//console.log(promptText.charAt(i));
 		if (promptText.charAt(i) == '[' && !started){
-			//console.log('found start');
 			started = true; 
 			blankNum = blankNum + 1;
 		}
@@ -180,8 +161,6 @@ async function autoBox(promptText,parse){
 
 	let mydiv = document.getElementById('promptSection');
 	if (typeof parse !== 'undefined'){
-		//build and append autofill section 
-		//'h3'
 		let autoTitle = document.createElement('h3');
 		//content autofill and copy
 		autoTitle.textContent = 'Autofill and Copy'
@@ -192,7 +171,6 @@ async function autoBox(promptText,parse){
 		let autoInput = document.createElement('input');
 		let br;
 		for (let x of blanks){
-			//create blank name
 			console.log('Auto')
 			blankName = document.createElement('small'); 
 			blankName.textContent = x.slice(1,-1)+':';
@@ -219,18 +197,14 @@ async function autoBox(promptText,parse){
 async function saveBox(parse)
 {
 	if (parse.length <=1){
-		//console.log('parse is undefined');
 		var namevalue = 'Prompt Name...'
-	}else 
-	{	//console.log('parse is defined');
-		//console.log(parse);
+	}else{ 
 		var namevalue = parse;
 	}
 
 	let nameInput = document.createElement('input');
 	let nameButton = document.createElement('button');
 	let nameText = document.createElement('small');
-	//let spaces = document.createElement('div');
 
 	nameText.textContent = 'Prompt Name:';
 
@@ -242,18 +216,14 @@ async function saveBox(parse)
 	nameButton.id = 'save';
 	nameButton.textContent = 'Save';
 
-	//spaces.classList.add('spacing');
 
 	let mydiv = document.getElementById('promptSection');
 
-	//await mydiv.appendChild(spaces);
 	await mydiv.appendChild(nameText);
 	await mydiv.appendChild(nameInput);
 	await mydiv.appendChild(nameButton);
-	//console.log('running addme');
 	addme();
 
 }
 
 promBox();
-//saveBox();
