@@ -66,7 +66,7 @@ document.getElementById('save').addEventListener("click",function(){
 });
 }
 
-async function autoListner(keyNames){
+async function autoListner(keyNames,promptText){
 
 	
 console.log('autoListner function');
@@ -81,9 +81,28 @@ document.getElementById('copy').addEventListener('click',function(event){
 		//if keyname value is not null add to map]
 		console.log('logging value '+keyNames[i]);
 		console.log(document.getElementById(keyNames[i]).value);
+		var key = keyNames[i];
+		var val = document.getElementById(keyNames[i]).value;
 		console.log('value length '+document.getElementById(keyNames[i]).value.length)
+		if (val.length > 0 ){
+			boxValues.set(key,val);
+			console.log('AUTOFILL VALUE ADDED');
+		}
 	}
 	//for each key name replace
+	var result = promptText;
+	boxValues.forEach((values,keys)=>{
+		console.log(values,keys);
+		let findMe = keys;
+		let replace= values;
+		console.log("find and replace",findMe);
+		//console.log(promptText);
+		result = result.replace(findMe,replace);
+		//test one 
+		//result = result.replace('[commander]',replace)
+		console.log(result);
+
+	});
 	//copy to clipboard 
 
 
@@ -190,7 +209,7 @@ async function autoBox(promptText,parse){
 		copy.textContent = 'copy';
 		copy.id = 'copy';
 		await mydiv.appendChild(copy);
-	 	autoListner(blanks);	
+	 	autoListner(blanks,promptText);	
 	//create blank box 
 
 }	
