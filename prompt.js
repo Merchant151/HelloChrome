@@ -96,15 +96,12 @@ document.getElementById('copy').addEventListener('click',function(event){
 		let findMe = keys;
 		let replace= values;
 		console.log("find and replace",findMe);
-		//console.log(promptText);
 		result = result.replace(findMe,replace);
-		//test one 
-		//result = result.replace('[commander]',replace)
 		console.log(result);
 
 	});
 	//copy to clipboard 
-
+	navigator.clipboard.writeText(result);
 
 });
 
